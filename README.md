@@ -2,7 +2,9 @@
     net-promoter-score | API NodeJS
 </h1>
 
-<h2 align="center">API desenvolvida na semana NLW04</h2>
+<p align="center">API desenvolvida na semana NLW04</p>
+
+<br/>
 
 <p align="center">
 <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
