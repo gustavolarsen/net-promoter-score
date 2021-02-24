@@ -30,6 +30,8 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - TypeORM
 - Reflect-metadata
 - Sqlite3
+- Jest
+- Supertest
 
 ## 💻 Projeto
 
