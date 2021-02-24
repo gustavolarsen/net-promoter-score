@@ -28,6 +28,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - Express
 - Typescript
 - TypeORM
+- Uuid
 - Reflect-metadata
 - Sqlite3
 - Jest
