@@ -35,7 +35,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ## 💻 Projeto
 
-Projeto se trata de uma API para medir a satisfação de clientes utilizando a métrica NPS (Net Promoter Score) através de questionários enviados para os e-mails dos clientes.
+Projeto se trata de uma API para medir a satisfação de clientes utilizando a métrica NPS (Net Promoter Score) enviando os questionários por e-mail.
 
 ## :memo: Licença
 
