@@ -33,6 +33,8 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - Sqlite3
 - Jest
 - Supertest
+- Nodemailer
+- Handlebars
 
 ## 💻 Projeto
 
