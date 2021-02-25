@@ -1,10 +1,10 @@
 import { Request, Response } from 'express';
-import { getRepository } from 'typeorm';
-import { User } from '../models/User';
+import { getCustomRepository } from 'typeorm';
+import { UserRepository } from '../repositories/UserRepository';
 
 class UserController {
   async getUsers(req: Request, res: Response) {
-    const users = await getRepository(User).find();
+    const users = await getCustomRepository(UserRepository).find();
 
     return res.status(200).json(users);
   }
@@ -12,7 +12,7 @@ class UserController {
   async createUser(req: Request, res: Response) {
     const { name, email } = req.body;
 
-    const userRepository = getRepository(User);
+    const userRepository = getCustomRepository(UserRepository);
 
     const userExists = await userRepository.findOne({
       where: { email },
@@ -29,7 +29,7 @@ class UserController {
 
     await userRepository.save(newUser);
 
-    return res.status(200).json({ success: 'User created.' });
+    return res.status(201).json({ success: 'User created.' });
   }
 }
 
