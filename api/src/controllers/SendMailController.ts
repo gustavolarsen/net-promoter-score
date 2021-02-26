@@ -3,7 +3,7 @@ import { resolve } from 'path';
 import { Request, Response } from 'express';
 import { UserRepository } from '../repositories/UserRepository';
 import { SurveyRepository } from '../repositories/SurveyRepository';
-import { SurveyUserRepository } from '../repositories/SurveyUserReposiotory';
+import { SurveyUserRepository } from '../repositories/SurveyUserRepository';
 import SendMailService from '../services/SendMailService';
 
 class SendMailController {
@@ -26,6 +26,16 @@ class SendMailController {
       return res.status(400).json({ error: 'Survey not found' });
     }
 
+    //verifica se ja existe a pesquisa não respondida para o usuario
+    const surveyUserExists = await surveyUserRepository.findOne({
+      where: {
+        user_id: userExists.id,
+        survey_id: surveyExists.id,
+        value: null,
+      },
+      relations: ['user', 'survey'],
+    });
+
     //busca template do email da pesquisa
     const npsPath = resolve(__dirname, '..', 'views', 'emails', 'npsMail.hbs');
 
@@ -34,22 +44,14 @@ class SendMailController {
       name: userExists.name,
       title: surveyExists.title,
       description: surveyExists.description,
-      user_id: userExists.id,
-      link: process.env.URL_MAIL_SURVAY,
+      id: '',
+      link: process.env.URL_MAIL_SURVEY,
     };
-
-    //verifica se ja existe a pesquisa não respondida para o usuario
-    const surveyUserExists = await surveyUserRepository.findOne({
-      where: [
-        { user_id: userExists.id },
-        { survey_id: surveyExists.id },
-        { value: null },
-      ],
-      relations: ['user', 'survey'],
-    });
 
     //envia por email a mesma pesquisa
     if (surveyUserExists) {
+      mailVariables.id = surveyUserExists.id;
+
       await SendMailService.execute(
         userExists.email,
         surveyExists.title,
@@ -67,6 +69,8 @@ class SendMailController {
     });
 
     await surveyUserRepository.save(newSurveyUser);
+
+    mailVariables.id = newSurveyUser.id;
 
     await SendMailService.execute(
       userExists.email,
