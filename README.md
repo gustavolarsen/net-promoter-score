@@ -1,3 +1,7 @@
+<p align="center">
+<img src="https://ik.imagekit.io/guslarsen/nps_qGLNDE9IW.jpg" />
+</p>
+
 <h1 align="center">
     net-promoter-score | API NodeJS
 </h1>
@@ -13,9 +17,7 @@
 </p>
 
 <p align="center">
- <img src="https://img.shields.io/static/v1?label=PRs&message=welcome&color=49AA26&labelColor=000000" alt="PRs welcome!" />
-
-  <img alt="License" src="https://img.shields.io/static/v1?label=license&message=MIT&color=49AA26&labelColor=000000">
+ <img alt="repo size" src= "https://img.shields.io/github/repo-size/gustavolarsen/net-promoter-score" />
 </p>
 
 <br>
@@ -35,10 +37,11 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - Supertest
 - Nodemailer
 - Handlebars
+- Yup
 
 ## 💻 Projeto
 
-Projeto se trata de uma API para medir a satisfação de clientes utilizando a métrica NPS (Net Promoter Score) enviando os questionários por e-mail.
+Projeto se trata de uma API para medir a satisfação de clientes utilizando a métrica NPS (Net Promoter Score) enviando os questionários por e-mail e recebendo a avaliação do usuário através de uma rota de resposta.
 
 ## :memo: Licença
 
